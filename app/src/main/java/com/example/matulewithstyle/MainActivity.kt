@@ -11,6 +11,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.matulewithstyle.activity.Home
 import com.example.matulewithstyle.activity.SignIn
 import com.example.matulewithstyle.ui.theme.MatuleWithStyleTheme
 
@@ -20,7 +24,22 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MatuleWithStyleTheme {
-                SignIn()
+                val navController = rememberNavController()
+
+                NavHost(
+                    navController = navController,
+                    startDestination = "signin" // Указываем начальный экран
+                ) {
+                    // Экран входа
+                    composable("signin") {
+                        SignIn(navController) // Передаем NavController для навигации
+                    }
+
+                    // Экран регистрации
+                    composable("home") {
+                        Home(navController)
+                    }
+                }
             }
         }
     }
