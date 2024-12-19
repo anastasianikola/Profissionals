@@ -149,7 +149,7 @@ fun SignIn(navController: NavController) {
                     fontSize = 20.sp
                 )
             }
-
+            //отступ
             Spacer(modifier = Modifier.height(10.dp))
             if (errorMessage.value.isNotEmpty()) {
                 Text(
