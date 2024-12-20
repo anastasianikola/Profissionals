@@ -15,7 +15,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.matulewithstyle.activity.Home
+import com.example.matulewithstyle.activity.OnBoarding
 import com.example.matulewithstyle.activity.SignIn
+import com.example.matulewithstyle.activity.Splash
 import com.example.matulewithstyle.ui.theme.MatuleWithStyleTheme
 
 class MainActivity : ComponentActivity() {
@@ -38,6 +40,12 @@ class MainActivity : ComponentActivity() {
                     // Экран регистрации
                     composable("home") {
                         Home(navController)
+                    }
+                    composable("splash"){
+                        Splash(navController)
+                    }
+                    composable("on_boarding"){
+                        OnBoarding(navController)
                     }
                 }
             }
